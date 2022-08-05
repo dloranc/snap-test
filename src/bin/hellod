@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+config_file="$SNAP/etc/hello.conf"
+
+while true; do
+  sleep_time="$(awk '/^sleep_time/{print $2}' "$config_file")"
+
+  echo "Hello World!"
+
+  sleep "$sleep_time"
+done
+
